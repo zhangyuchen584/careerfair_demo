@@ -8,6 +8,9 @@
         <link href="../css/bootstrap-responsive.css" rel="stylesheet">
     </head>
     <body>
+        <!-- <p>{{test}}</p> -->
+        <!-- <span ng-bind-html="highlight(textToSearchThrough, searchText)"></span> -->
+
         <img  src="../I2R.png" width= 9% style="margin: 3px 0px 2px 22px" />
         <div class="hh">twitter sentiment analysis</div>
         <div class="row-fluid" style="margin-top: 15px">
@@ -35,32 +38,40 @@
                             <div class="row-fluid">
                                 <div class="span1"></div>
                                 <div class="span10">
-                                    <textarea  class="span12 textarea1" placeholder="you can test here" ng-model="inputComment"></textarea>
-                                    
+                                    <textarea  class="span9 textarea1" placeholder="your sentence:" ng-model="inputComment"></textarea>
+                                    <textarea  class="span3 textarea1" placeholder="target:" ng-model="inputTarget"></textarea>
                                 </div>
                                 <div class="span1"></div>
                             </div>
                             <div class="row-fluid">
                                 <div class="span1"></div>
                                 <div class="span2">
-                                    <button class="span12 button button-glow button-border button-rounded button-primary"  ng-click = "analysis(inputComment)">GO</button>
+                                    
+                                    <button class="span12 button button-glow button-border button-rounded button-primary"  ng-click = "analysis(inputComment,inputTarget)">GO</button>
                                 </div>                                
                                 
 
-
-
-                                <div class="span8">
+                               <!--  <div class="span8">
                                     <div class="title1" style="text-align: left;">
                                         
                                         <div  ng-repeat="item in inputResult" ng-if = "showPolarity">
                                             <li>{{item.polaType}}</li>
                                         </div>
+                                        
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
-                            
-                            <div class="clash-card__unit-description">
-                                
+                            <div class="row-fluid">
+                                <div class="span1"></div>
+                                <div class="span10 title1" style="text-align: left";>{{inputResult.data.polaType}}</div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="span1"></div>
+                                <div class="span10 title" style="text-align: left"  ng-bind-html="highlight(inputResult.data.sentence[0], inputResult.data.targ[0])"></div>
+                            </div>
+
+                            <div class="clash-card__unit-description">                                
                             </div>
                         </div>
                     </div>
@@ -74,22 +85,35 @@
                         <div class="TitleA">COMMENTS</div>
                         <div class="card-body1">
 
-                            <div class="textB">{{selectDemo.target}}</div>
+                            <div class="textB ">{{selectDemo.target}}</div>
                             
                             <div class="title1">{{Classification[0][0].polaType}}</div>
-                            <div  ng-repeat="item in Classification[0]">
-                                <!-- //<a  data-ng-click="ShowId($event)"> -->
-                                <div style="font-weight: bold;"><li>{{item.sentence[0]}} </li></div>
+                            <div style="background-color: #e0e0eb ">
+                                <div  ng-repeat="item in Classification[0]">
+                                    <!-- //<a  data-ng-click="ShowId($event)"> -->
+                                    <li class="title" style="font-weight: bold;text-align: left" ng-bind-html="highlight(item.sentence[0], item.targ[0])"></li>
+                                    <!-- <div style="font-weight: bold;"><li>{{item.sentence[0]}} </li></div> -->                            
+                                    
+                                </div>
                             </div>
-                            <div class="title1">{{Classification[1][0].polaType}}</div>
-                            <div  ng-repeat="item in Classification[1]">
-                                <!-- //<a  data-ng-click="ShowId($event)"> -->
-                                <div style="font-weight: bold;"><li>{{item.sentence[0]}} </li></div>
+                            
+                            <div class="title1">{{Classification[1][0].polaType}}</div> 
+                            <div style="background-color: transparent ">
+                                <div  ng-repeat="item in Classification[1]">
+                                    <!-- //<a  data-ng-click="ShowId($event)"> -->
+                                    <li style="font-weight: bold;" ng-bind-html="highlight(item.sentence[0], item.targ[0])"></li>
+
+                                    <!-- <div style="font-weight: bold;"><li>{{item.sentence[0]}} </li></div> -->
+                                </div>                            
                             </div>
+
                             <div class="title1">{{Classification[2][0].polaType}}</div>
-                            <div  ng-repeat="item in Classification[2]">
-                                <!-- //<a  data-ng-click="ShowId($event)"> -->
-                                <div style="font-weight: bold;"><li>{{item.sentence[0]}} </li></div>
+                            <div style="background-color: #e0e0eb ">
+                                <div  ng-repeat="item in Classification[2]">
+                                    <!-- //<a  data-ng-click="ShowId($event)"> -->
+                                    <li style="font-weight: bold;" ng-bind-html="highlight(item.sentence[0], item.targ[0])"></li>
+                                    <!-- <div style="font-weight: bold;"><li>{{item.sentence[0]}} </li></div> -->
+                                </div>
                             </div>
 
                         </div>
