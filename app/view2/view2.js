@@ -19,11 +19,11 @@ function View2Ctrl($rootScope, $scope, $http,$sce) {
 
     $scope.demos = {
         'SMRT Signalling Fault' : {target:"Topic: Due to a track signalling fault, pls add 30mins train travel time btwn #ChangiAirport and #TanahMerah. Free regular bus are available between #Tanah Merah and #Changi Airport.",
-        comments : "Please explain why such faults occur again after the recent two full Sundays of train system closures? It is implied that nothing is still being done to rectify the new signaling system ?\tsystem\nFirst fault 2018.\tfault\nNew year. same shit\tsame"},
+        comments : "the food is good\tfood\nthe food is bad\tfood\nPlease explain why such faults occur again after the recent two full Sundays of train system closures? It is implied that nothing is still being done to rectify the new signaling system ?\tsystem\nFirst fault 2018.\tfault\nNew year. same shit\tsame"},
         'Apology for Traffic Issue' : {target:"Topic: We are sorry that your journey will be affected during this period. Thank you for your patience and understanding.",
-        comments : "London has tube breakdowns everyday. You're actually lucky you don't get more distribution in Singapore this is much worse and more normal in other countries\tcountries\nIn London the vechicle prices are not so high and people can easily own a car !!! Here people relay only on public transport.\tpublic"},
+        comments : "the food is good\tfood\nthe food is bad\tfood\nLondon has tube breakdowns everyday. You're actually lucky you don't get more distribution in Singapore this is much worse and more normal in other countries\tcountries\nIn London the vechicle prices are not so high and people can easily own a car !!! Here people relay only on public transport.\tpublic"},
         'Floor Collapsed Accident' : {target:"Topic: Video emerges online showing the moment a Jakarta stock exchange floor collapsed under a group of visiting students http://cna.asia/2FDAL0H",
-        comments : "Video emerges online showing the moment a Jakarta stock exchange floor collapsed under a group of visiting students http://cna.asia/2FDAL0H\tstudents\nThe design is very bad . Cantilever floor slab should have been designed for such scenarios.\tdesigned\n75 injured. Nil deaths reported.\tdeaths"},
+        comments : "the food is good\tfood\nthe food is bad\tfood\nVideo emerges online showing the moment a Jakarta stock exchange floor collapsed under a group of visiting students http://cna.asia/2FDAL0H\tstudents\nThe design is very bad . Cantilever floor slab should have been designed for such scenarios.\tdesigned\n75 injured. Nil deaths reported.\tdeaths"},
     }
 
     // $scope.textToSearchThrough = 'yuchen, hello word'

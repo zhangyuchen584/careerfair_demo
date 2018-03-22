@@ -6,35 +6,31 @@
         <link href="../css/style.css" rel="stylesheet">
         <link href="../css/app.css" rel="stylesheet">
         <link href="../css/bootstrap-responsive.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     </head>
     <body>
         <!-- <p>{{test}}</p> -->
         <!-- <span ng-bind-html="highlight(textToSearchThrough, searchText)"></span> -->
-
         <img  src="../I2R.png" width= 9% style="margin: 3px 0px 2px 22px" />
         <div class="hh">twitter sentiment analysis</div>
         <div class="row-fluid" style="margin-top: 15px">
-            <div class="span4 " >
+            <div class="span3 " >
                 <div class="row-fluid">
                     <div class="span3"></div>
-                    
-                        <!-- demo -->
-                        <select id="uiSel" class="span6 button button-3d button-primary button-rounded analyze_button button-primary" ng-model="selectDemo" ng-options="x for (x,y) in demos" ng-change=updateSelected()><!-- ng-click="TwitterComments(demos.topic1.comments)" -->
-                        <option value="" >SHOW DEMO</option>
-                        </select>
-                    
-                    <div ></div>
-
-
+                    <select id="uiSel" class="span6 button button-3d button-primary button-rounded analyze_button button-primary" ng-model="selectDemo" ng-options="x for (x,y) in demos" ng-change=updateSelected()><!-- ng-click="TwitterComments(demos.topic1.comments)" -->
+                    <option value="" >SHOW DEMO</option>
+                </select>
+                <div ></div>
                 <div class="span3"></div></div>
                 <div class="row-fluid">
                     <div class="span1"></div>
                     <div class="span10">
                         <div class="clash-card1">
                             <div class="clash-card__image1 clash-card__image--barbarian1">
-                                
                             </div>
-                            
                             <div class="row-fluid">
                                 <div class="span1"></div>
                                 <div class="span10">
@@ -48,30 +44,17 @@
                                 <div class="span2">
                                     
                                     <button class="span12 button button-glow button-border button-rounded button-primary"  ng-click = "analysis(inputComment,inputTarget)">GO</button>
-                                </div>                                
-                                
-
-                               <!--  <div class="span8">
-                                    <div class="title1" style="text-align: left;">
-                                        
-                                        <div  ng-repeat="item in inputResult" ng-if = "showPolarity">
-                                            <li>{{item.polaType}}</li>
-                                        </div>
-                                        
-                                    </div>
-                                </div> -->
+                                </div>
                             </div>
                             <div class="row-fluid">
                                 <div class="span1"></div>
                                 <div class="span10 title1" style="text-align: left";>{{inputResult.data.polaType}}</div>
                             </div>
-
                             <div class="row-fluid">
                                 <div class="span1"></div>
                                 <div class="span10 title" style="text-align: left"  ng-bind-html="highlight(inputResult.data.sentence[0], inputResult.data.targ[0])"></div>
                             </div>
-
-                            <div class="clash-card__unit-description">                                
+                            <div class="clash-card__unit-description">
                             </div>
                         </div>
                     </div>
@@ -79,51 +62,61 @@
                 </div>
                 
             </div>
-            <div class="span8">
+            <div class="span9">
                 <div class="wrapper1">
                     <div class="card1">
                         <div class="TitleA">COMMENTS</div>
-                        <div class="card-body1">
-
-                            <div class="textB ">{{selectDemo.target}}</div>
-                            
-                            <div class="title1">{{Classification[0][0].polaType}}</div>
-                            <div style="background-color: #e0e0eb ">
+                        <div class='wrapper'>
+                            <div class='span4 package positive'>
+                                <div class='name' style="color: #99CC33;">Positive</div>
+                                
+                                <div class='trial'>Comment: {{Classification[0].length}}</div>
+                                <hr>
                                 <div  ng-repeat="item in Classification[0]">
-                                    <!-- //<a  data-ng-click="ShowId($event)"> -->
-                                    <li class="title" style="font-weight: bold;text-align: left" ng-bind-html="highlight(item.sentence[0], item.targ[0])"></li>
-                                    <!-- <div style="font-weight: bold;"><li>{{item.sentence[0]}} </li></div> -->                            
-                                    
+                                    <li class="title" style="text-align: left; margin:0px 5px 10px 5px" ng-bind-html="highlight(item.sentence[0], item.targ[0])"></li>
                                 </div>
                             </div>
-                            
-                            <div class="title1">{{Classification[1][0].polaType}}</div> 
-                            <div style="background-color: transparent ">
+                            <div class='span4 package negtive'>
+                                <div class='name' style="color: #ffcc00;">Negative</div>
+                                <div class='trial'>Comment: {{Classification[1].length}}</div>
+
+                                <hr>
+                                
                                 <div  ng-repeat="item in Classification[1]">
-                                    <!-- //<a  data-ng-click="ShowId($event)"> -->
-                                    <li style="font-weight: bold;" ng-bind-html="highlight(item.sentence[0], item.targ[0])"></li>
-
-                                    <!-- <div style="font-weight: bold;"><li>{{item.sentence[0]}} </li></div> -->
-                                </div>                            
-                            </div>
-
-                            <div class="title1">{{Classification[2][0].polaType}}</div>
-                            <div style="background-color: #e0e0eb ">
-                                <div  ng-repeat="item in Classification[2]">
-                                    <!-- //<a  data-ng-click="ShowId($event)"> -->
-                                    <li style="font-weight: bold;" ng-bind-html="highlight(item.sentence[0], item.targ[0])"></li>
-                                    <!-- <div style="font-weight: bold;"><li>{{item.sentence[0]}} </li></div> -->
+                                    <li class="title" style="text-align: left; margin:0px 5px 10px 5px" ng-bind-html="highlight(item.sentence[0], item.targ[0])"></li>
                                 </div>
                             </div>
-
+                            <div class='span4 package neutral'>
+                                <div class='name' style="color: #ff9900;">Neutral</div>
+                                <div class='trial'>Comment: {{Classification[2].length}}</div>
+                                <hr>
+                                
+                                <div  ng-repeat="item in Classification[2]">
+                                    <li class="title" style="text-align: left; margin:0px 5px 10px 5px" ng-bind-html="highlight(item.sentence[0], item.targ[0])"></li>
+                                </div>
+                            </div>
                         </div>
-                        <div class="clash-card__unit-stats clash-card__unit-stats--barbarian clearfix">
+                        <!-- <div class="card-body1">
+                            <div class="title1" style="color: #99CC33; font-weight: bold">{{Classification[0][0].polaType}}</div>
+                            <div  ng-repeat="item in Classification[0]">
+                                <li class="title" style="text-align: left; margin:0px 5px 10px 5px" ng-bind-html="highlight(item.sentence[0], item.targ[0])"></li>
+                            </div>
+                            <div class="title1" style="color: #ffcc00; font-weight: bold">{{Classification[1][0].polaType}}</div>
+                            <div  ng-repeat="item in Classification[1]">
+                                <li class="title" style="text-align: left; margin:0px 5px 10px 5px" ng-bind-html="highlight(item.sentence[0], item.targ[0])"></li>
+                            </div>
+                            <div class="title1" style="color: #ff9900; font-weight: bold">{{Classification[2][0].polaType}}</div>
+                            <div  ng-repeat="item in Classification[2]">
+                                <li class="title" style="text-align: left; margin:0px 5px 10px 5px" ng-bind-html="highlight(item.sentence[0], item.targ[0])"></li>
+                            </div>
+                        </div> -->
+                        <!--  <div class="clash-card__unit-stats clash-card__unit-stats--barbarian clearfix">
                             <div class="one-third " style="background-color: #99CC33 ">
                                 <div class="stat" >{{Classification[0].length}}
                                 </div>
                                 <div class="stat-value">Positive</div>
                             </div>
-                            <div class="one-third" style="background-color: #FFCC00">
+                            <div class="one-third" style="background-color: #ffcc00">
                                 <div class="stat">{{Classification[1].length}}</div>
                                 <div class="stat-value">Negative</div>
                             </div>
@@ -131,10 +124,10 @@
                                 <div class="stat">{{Classification[2].length}}</div>
                                 <div class="stat-value">Neutral</div>
                             </div>
-                        </div>
-                        </div> <!-- end clash-card barbarian-->
-                        </div> <!-- end wrapper -->
+                        </div> -->
                     </div>
                 </div>
-            </body>
-        </html>
+            </div>
+        </div>
+    </body>
+</html>

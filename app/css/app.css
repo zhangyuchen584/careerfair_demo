@@ -13,6 +13,7 @@ body{
 
 .wrapper:focus {
   outline: 0;
+
 }
 
 .card {
@@ -39,8 +40,8 @@ color: black;
 .title{
 font-family: Arial,serif;
 color: #111111;
-font-size: 1.3em;
-font-weight: bold;
+font-size: 1.4em;
+/*font-weight: bold;*/
 /*margin-top: : 10px;*/
 /*margin-bottom: 10px;*/
 text-align: center;
