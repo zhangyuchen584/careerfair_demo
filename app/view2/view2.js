@@ -17,24 +17,17 @@ function View2Ctrl($rootScope, $scope, $http,$sce) {
     // $scope.html = '<ul><li>render me please</li></ul>';
     $scope.trustedHtml = $sce.trustAsHtml();
 
-    $scope.demos = {
-        'SMRT Signalling Fault' : {target:"Topic: Due to a track signalling fault, pls add 30mins train travel time btwn #ChangiAirport and #TanahMerah. Free regular bus are available between #Tanah Merah and #Changi Airport.",
-        comments : "the food is good\tfood\nthe food is bad\tfood\nPlease explain why such faults occur again after the recent two full Sundays of train system closures? It is implied that nothing is still being done to rectify the new signaling system ?\tsystem\nFirst fault 2018.\tfault\nNew year. same shit\tsame"},
-        'Apology for Traffic Issue' : {target:"Topic: We are sorry that your journey will be affected during this period. Thank you for your patience and understanding.",
-        comments : "the food is good\tfood\nthe food is bad\tfood\nLondon has tube breakdowns everyday. You're actually lucky you don't get more distribution in Singapore this is much worse and more normal in other countries\tcountries\nIn London the vechicle prices are not so high and people can easily own a car !!! Here people relay only on public transport.\tpublic"},
-        'Floor Collapsed Accident' : {target:"Topic: Video emerges online showing the moment a Jakarta stock exchange floor collapsed under a group of visiting students http://cna.asia/2FDAL0H",
-        comments : "the food is good\tfood\nthe food is bad\tfood\nVideo emerges online showing the moment a Jakarta stock exchange floor collapsed under a group of visiting students http://cna.asia/2FDAL0H\tstudents\nThe design is very bad . Cantilever floor slab should have been designed for such scenarios.\tdesigned\n75 injured. Nil deaths reported.\tdeaths"},
-    }
+    $scope.demos = {comments : "the food is good\tfood\nthe food is bad\tfood\nPlease explain why such faults occur again after the recent two full Sundays of train system closures? It is implied that nothing is still being done to rectify the new signaling system ?\tsystem\nFirst fault 2018.\tfault\nNew year. same shit\tsame"}    
 
     // $scope.textToSearchThrough = 'yuchen, hello word'
     // $scope.searchText = 'hello'
 
 
     $scope.TwitterComments = function(text) {
-        // console.log(1)
-        // console.log(text)
+        console.log(1)
+        console.log(text)
         // text = 'Due to a track signalling fault, pls add 30mins train travel time btwn #ChangiAirport and #TanahMerah.\nFree regular bus are available between #Tanah Merah and #Changi Airport.\nPlease explain why such faults occur again after the recent two full Sundays of train system closures?\nIt is implied that nothing is still being done to rectify the new signaling system ?\nFirst fault 2018.\nNew year. \nsame shit\nwhat a joke... already 30 mins from novena to raffles and still stuck...no announcement nothing...pathetic.\nWhat\'s wrong with redline. 1000\'s waiting at Bishan station\nU clearly need a new year\'s resolution. \nOr are you the kind of person that has one, and that gives up on it a day later. \nAhhh, that must be it! I\'m like that too, but 5 million ppl\'s lives does not depend on my efficiency. \nActually, zero ppl depend on me.\nFirst day of school.. Luckily it\'s only those heading to airport affected. \nCan\'t image first day of school late due to "competency" of transport company\nSMRT needs to buck up. \nWhat happened to the most reliable MRT system? Slacking.\nPerfect way to ring in the new year, breaking the resolution about fewer faults\nThey are only human... it\'s still THE best system I\'ve ever experienced.\n@LTAsg @PAPSingapore TA DA! And there you have it. Warm welcome to tourists and coming home Singaporeans! Did khaw say something like "good job smrt" somewhere and not published? LOL!\nDue to signalling fault, I\'m adding another day off from school\nOH FFS! Enuff already! Its bloody 2018!!'
-        text = text
+        // text = text
         // console.log(text)
         var destinationURL = 'http://127.0.0.1:1230';
         var config = {
@@ -112,26 +105,17 @@ function View2Ctrl($rootScope, $scope, $http,$sce) {
         $scope.inputResult = twitter;
 
         console.log(twitter)
-        // TemArray1.push(twitter.data);
-        // if (TemArray1[$scope.inputArea.length - 1] != null) {
-        //     $scope.inputResult = TemArray1
-            
 
-        // }
-
-        // $scope.showPolarity = false;
     }
 
+    twitter = $scope.demos.comments
+    $scope.TwitterComments(twitter)
 
     $scope.errorOutput = function() {
         console.log("errooooooooooor");
     }
 
-    $scope.updateSelected = function(){
-        twitter = $scope.selectDemo.comments
-        $scope.TwitterComments(twitter)
-        // console.log($scope.selectDemo.target)
-    }
+
 
 
     $scope.highlight = function(text, search) {
