@@ -1,19 +1,19 @@
 //import {Http, Response} from '@angular/http'
-//angular.module('myApp.view2', ['ngRoute', 'http'])
+//angular.module('myApp.twitterTarget', ['ngRoute', 'http'])
 
-angular.module('myApp.view2', ['ngRoute'])
+angular.module('myApp.twitterTarget', ['ngRoute'])
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/view2', {
-            templateUrl: 'view2/view2.html',
-            controller: 'View2Ctrl'
+        $routeProvider.when('/twitterTarget', {
+            templateUrl: 'twitterTarget/twitterTarget.html',
+            controller: 'twitterTargetCtrl'
         });
     }])
-    .controller('View2Ctrl', View2Ctrl);
+    .controller('twitterTargetCtrl', twitterTargetCtrl);
 
-View2Ctrl.$inject = ['$rootScope', '$scope', '$http','$sce'];
+twitterTargetCtrl.$inject = ['$rootScope', '$scope', '$http','$sce'];
 
 
-function View2Ctrl($rootScope, $scope, $http,$sce) {
+function twitterTargetCtrl($rootScope, $scope, $http,$sce) {
     // $scope.html = '<ul><li>render me please</li></ul>';
     $scope.trustedHtml = $sce.trustAsHtml();
 
